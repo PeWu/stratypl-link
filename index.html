@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Przekierowywanie na stronę straty.pl</title>
+    <script>
+      function submit() {
+        var id = location.search.substr(1);
+        document.getElementsByName('idosoby1')[0].value = id;
+        document.form.submit();
+      }
+    </script>
+  </head>
+  <body onLoad="submit()">
+    Przekierowywanie na stronę <i>straty.pl</i>...
+    <form action="http://straty.pl/index.php/szukaj-w-bazie"
+          method="POST"
+          name="form">
+      <input type="hidden" name="lp" value="1">
+      <input type="hidden" name="idosoby1">
+    </form>
+  </body>
+</html>
