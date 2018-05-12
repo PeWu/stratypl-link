@@ -2,12 +2,13 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Przekierowywanie na stronę straty.pl</title>
+    <title>Trwałe odnośniki do rekordów bazy straty.pl</title>
     <script>
       function submit() {
         var id = location.search.substr(1);
         if (id) {
           document.getElementById('redirecting').style.display = 'block';
+          document.title = 'Przekierowywanie na stronę straty.pl';
           document.getElementsByName('idosoby1')[0].value = id;
           document.form.submit();
         } else {
