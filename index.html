@@ -6,18 +6,40 @@
     <script>
       function submit() {
         var id = location.search.substr(1);
-        document.getElementsByName('idosoby1')[0].value = id;
-        document.form.submit();
+        if (id) {
+          document.getElementById('redirecting').style.display = 'block';
+          document.getElementsByName('idosoby1')[0].value = id;
+          document.form.submit();
+        } else {
+          document.getElementById('instructions').style.display = 'block';
+        }
       }
     </script>
   </head>
   <body onLoad="submit()">
-    Przekierowywanie na stronę <i>straty.pl</i>...
     <form action="http://straty.pl/index.php/szukaj-w-bazie"
           method="POST"
           name="form">
       <input type="hidden" name="lp" value="1">
       <input type="hidden" name="idosoby1">
     </form>
+    <div id="redirecting" style="display: none">
+      Przekierowywanie na stronę <i>straty.pl</i>...
+    </div>
+    <div id="instructions" style="display: none">
+      <h1>Instrukcja</h1>
+      <ol>
+        <li>
+          Przeciągnij ten link do swoich zakładek:
+          <a href="javascript:b = document.getElementsByName('byl'); ids = b[b.length - 1].value.split('.'); alert('https://pewu.github.io/stratypl-link?' + ids[ids.length - 1]);">straty.pl link</a>
+        <li>
+          Będąc na stronie rekordu na stronie
+          <a href="http://straty.pl">straty.pl</a> wciśnij zakładkę
+          "straty.pl link", a dostaniesz link podobny do tego:
+          <a href="https://pewu.github.io/stratypl-link?2586206">
+            https://pewu.github.io/stratypl-link?2586206</a>.
+          Ten link możesz sobie skopiować i będzie on prowadził do tego rekordu.
+      </ol>
+    </div>
   </body>
 </html>
