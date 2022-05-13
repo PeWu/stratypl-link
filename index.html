@@ -9,7 +9,7 @@
         if (id) {
           document.getElementById('redirecting').style.display = 'block';
           document.title = 'Przekierowywanie na stronę straty.pl';
-          document.getElementsByName('idosoby1')[0].value = id;
+          document.getElementById('id').name = 'id' + id;
           document.form.submit();
         } else {
           document.getElementById('instructions').style.display = 'block';
@@ -18,11 +18,10 @@
     </script>
   </head>
   <body onLoad="submit()">
-    <form action="https://straty.pl/pl/szukaj"
+    <form action="https://straty.pl/szukaj-osoby.php"
           method="POST"
           name="form">
-      <input type="hidden" name="lp" value="1">
-      <input type="hidden" name="idosoby1">
+      <input id="id" type="hidden" value="1">
     </form>
     <div id="redirecting" style="display: none">
       Przekierowywanie na stronę <i>straty.pl</i>...
